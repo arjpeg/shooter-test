@@ -5,10 +5,13 @@ import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ShooterSubsystem extends SubsystemBase {
-    private final MotorController shooterMotor;
+    private final MotorController motor = new Spark(35);
 
-    public ShooterSubsystem() {
-        shooterMotor = new Spark(0);
-        shooterMotor.set(0.75);
+    public void setPower(double power) {
+        motor.set(power);
+    }
+
+    public void stop() {
+        motor.stopMotor();
     }
 }
